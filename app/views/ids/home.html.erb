@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>3 Column Layout</title>
+	
+</head>
+
+<body>
+
+	<header id="header"><p>CMI - NTI ufpe</p></header>
+
+	<div id="container">
+
+		<main id="center" class="column">
+			<article>
+			
+				<h1>Formulário para cadastro de equipametos:</h1>
+				<%= form_for("/cadastrar", method: "post") do %>
+				 <table style="width:50%">
+				 	<%= select_tag(:tipo, options_for_select([['Computador', 'computador'], ['Celular', 'celular'], ['No-break', 'nobreak'], ['Notebook', 'notebook']], 1)) %>
+  <tr>
+    <td>Setor:</td>
+    <td><%= text_field_tag(:setor) %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>CPF / Siape do responsável:</td>
+    <td><%= text_field_tag(:pessoa) %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Descrição:</td>
+    <td><%= text_field_tag(:descricao) %></td>
+    <td></td>
+  </tr>
+</table>
+<%= submit_tag("Cadastrar") %>
+<% end %>
+				
+			
+			</article>								
+		</main>
+
+		<nav id="left" class="column">
+			<h3>Menu</h3>
+			<ul>
+				<li><a href="#">Cadastrar</a></li>
+				<li><a href="#">Consultar</a></li>
+				<li><a href="#">Sobre</a></li>
+				<li><a href="#">Ajuda</a></li>
+				<li><a href="#">OTRS</a></li>
+			</ul>
+
+		</nav>
+
+		
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer"><p>Github</p></footer>
+	</div>
+
+</body>
+
+</html>
