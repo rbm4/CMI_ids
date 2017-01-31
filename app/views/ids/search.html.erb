@@ -16,7 +16,43 @@
 		<main id="center" class="column">
 			<article>
 			
-				<h1><%= @messages.html_safe %></h1>
+				
+
+<%= form_for("/search", method: "post") do %>
+  <p>
+    Digite o Token único do equipamento: <%= text_field_tag :search, params[:search], :value => @search %>
+    <%= submit_tag "Procurar", :name => nil %>
+  </p>
+<% end %><br>
+<% if @content == true and @exists == true%>
+Entradas encontradas: 
+<table style="width:50%">
+  <tr>
+    <td>Setor:</td>
+    <td><%= @eqp.setor %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>CPF / Siape do responsável:</td>
+    <td><%= @eqp.responsavel %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Descrição:</td>
+    <td><%= @eqp.descricao %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Tipo:</td>
+    <td><%= @eqp.tipo %></td>
+    <td></td>
+  </tr>
+</table>
+<% elsif @exists == false %>
+<h1>Nenhuma entrada encontrada!</h1>
+<% end %>
+
+
 				</article>								
 		</main>
 

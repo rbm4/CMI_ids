@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'ids#home'
   post '/' => 'ids#save'
+  match 'search' => 'ids#search', via: [:get, :post]
+  get '/ajuda' => 'ids#ajuda'
+  get '/sobre' => 'ids#sobre'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
