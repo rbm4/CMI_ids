@@ -118,13 +118,18 @@
 		#container .column {
 			padding-top: 1em;
 		}
-		
+		img {
+			width: 40px;
+			height: 40px;
+		}
 	</style>
 	
 	
 <body>
-
+<header id="header"><p>CMI - NTI UFPE   <img src="images/nti.png" ></p></header>
 <%= yield %>
-
+<div id="footer-wrapper">
+		<footer id="footer"><p><a href="https://github.com/rbm4/CMI_ids">Github</a></p></footer>
+	</div>
 </body>
 </html>

@@ -19,6 +19,8 @@ class IdsController < ApplicationController
             token.token = "nobr_" + partido
         elsif eqp.tipo == "notebook"
             token.token = "note_" + partido
+        elsif eqp.tipo == "tablet"
+            token.token = "tblt_" + partido
         end
         token.eqp = eqp.id
         token.save
