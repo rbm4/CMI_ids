@@ -1,28 +1,17 @@
-== README
+== CMI IDs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta aplicação tem como objetivo gerar Ids para auxiliar no processo de nomeclatura de máquinas por parte do CMI e demais setores que venham a cadastrar equipamentos no OTRS.
 
-Things you may want to cover:
+Este aplicativo trabalha sobre arquitetura:
 
-* Ruby version
+* Ruby on rails
 
-* System dependencies
+== Deploy 
 
-* Configuration
+Para fazer deploy, você pode clonar este repositório e utilizar qualquer local para rodar ele em rede.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Sistema recomendado: Ubuntu
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Protótipo em:
+<a href="">CMI_ids</a>.

@@ -7,8 +7,10 @@ class IdsController < ApplicationController
         eqp.responsavel = params['pessoa']
         eqp.save!
         token = Token.new
-        token.token = SecureRandom.urlsafe_base64(nil, false)
-        partido = token.token.slice(1..8)
+        j = SecureRandom.random_number
+        js = String(j).split(".")
+        token.token = js[1]
+        partido = token.token.slice(1..10)
         if eqp.tipo == 'computador'
             token.token = "compt_" + partido
         elsif eqp.tipo == 'celular'
