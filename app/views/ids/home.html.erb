@@ -18,24 +18,11 @@
 				<h1>Formulário para cadastro de equipametos:</h1>
 				<%= form_for("/cadastrar", method: "post") do %>
 				 <table style="width:50%">
-				 	<%= select_tag(:tipo, options_for_select([['Computador', 'computador'], ['Celular', 'celular'], ['No-break', 'nobreak'], ['Notebook', 'notebook'], ['Tablet', 'tablet']], 1)) %>
-  <tr>
-    <td>Setor:</td>
-    <td><%= text_field_tag(:setor) %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>CPF / Siape do responsável:</td>
-    <td><%= text_field_tag(:pessoa) %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Descrição:</td>
-    <td><%= text_field_tag(:descricao) %></td>
-    <td></td>
-  </tr>
+				<p>Selecione abaixo o tipo do equipamento para gerar um ID</p> 	<%= select_tag(:tipo, options_for_select([['Computador', 'computador'], ['Celular', 'celular'], ['No-break', 'nobreak'], ['Notebook', 'notebook'], ['Monitor', 'monitor']], 1)) %>
+  
 </table>
-<%= submit_tag("Cadastrar") %>
+<br><br>
+<%= submit_tag("Gerar ID") %>
 <% end %>
 				
 			
@@ -45,7 +32,7 @@
 		<nav id="left" class="column">
 			<h3>Menu</h3>
 			<ul>
-				<li><a href="/">Cadastrar</a></li>
+				<li><a href="/">Gerar ID</a></li>
 				<li><a href="search">Consultar</a></li>
 				<li><a href="sobre">Sobre</a></li>
 				<li><a href="ajuda">Ajuda</a></li>

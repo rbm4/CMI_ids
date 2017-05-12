@@ -2,25 +2,21 @@ class IdsController < ApplicationController
     def save
         eqp = Equipamento.new
         eqp.tipo = params['tipo']
-        eqp.descricao = params['descricao']
-        eqp.setor = params['setor']
-        eqp.responsavel = params['pessoa']
-        eqp.save!
         token = Token.new
         j = SecureRandom.random_number
         js = String(j).split(".")
         token.token = js[1]
         partido = token.token.slice(1..10)
         if eqp.tipo == 'computador'
-            token.token = "compt_" + partido
+            token.token = "DSK_" + partido
         elsif eqp.tipo == 'celular'
-            token.token = "celul_" + partido
+            token.token = "OTR_" + partido
         elsif eqp.tipo == 'nobreak'
-            token.token = "nobr_" + partido
+            token.token = "NBR_" + partido
         elsif eqp.tipo == "notebook"
-            token.token = "note_" + partido
-        elsif eqp.tipo == "tablet"
-            token.token = "tblt_" + partido
+            token.token = "NTB_" + partido
+        elsif eqp.tipo == "monitor"
+            token.token = "MNT_" + partido
         end
         token.eqp = eqp.id
         token.save
@@ -41,10 +37,8 @@ class IdsController < ApplicationController
                 @exists = true
                 @eqp = Equipamento.find_by_id(tok.eqp)
             else
-                puts 'asdasdads'
                 @exists = false
             end
-            puts 'asdasdads'
         end
     end
 end
