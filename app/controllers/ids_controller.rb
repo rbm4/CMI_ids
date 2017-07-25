@@ -3,24 +3,29 @@ class IdsController < ApplicationController
         eqp = Equipamento.new
         eqp.tipo = params['tipo']
         token = Token.new
-        j = SecureRandom.random_number
-        js = String(j).split(".")
-        token.token = js[1]
-        partido = token.token.slice(1..10)
+        
+        partido = String(Date.today.to_time.to_i)
+        
         if eqp.tipo == 'computador'
             token.token = "DSK_" + partido
+            eqp.descricao = "Registrado como Computador(desktop)"
         elsif eqp.tipo == 'celular'
             token.token = "OTR_" + partido
+            eqp.descricao = "Registrado como Computador(desktop)"
         elsif eqp.tipo == 'nobreak'
             token.token = "NBR_" + partido
+            eqp.descricao = "Registrado como Nobreak"
         elsif eqp.tipo == "notebook"
             token.token = "NTB_" + partido
+            eqp.descricao = "Registrado como Notebook"
         elsif eqp.tipo == "monitor"
             token.token = "MNT_" + partido
+            eqp.descricao = "Registrado como Monitor"
         end
-        token.eqp = eqp.id
-        token.save
-        @messages = "Token único do equipamento registrado: " + String(token.token) + "<br>ID cadastral: " + String(token.eqp) + "<br><h6>Para procurar o equipamento e obter informações dele, utilize o menu 'consulta' ao lado.</h6>"
+        #eqp.save!
+        #token.eqp = eqp.id
+        #token.save
+        @messages = "Token único do equipamento a ser registrado: " + String(token.token) + "<br><h6>O link de acesso ao OTRS está localizado no menu ao lado.</h6>"
     end
     def ajuda
         #ajuda form
