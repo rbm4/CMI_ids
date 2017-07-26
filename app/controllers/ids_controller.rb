@@ -3,9 +3,10 @@ class IdsController < ApplicationController
         eqp = Equipamento.new
         eqp.tipo = params['tipo']
         token = Token.new
-        
-        partido = String(Date.today.to_time.to_i)
-        
+        j = SecureRandom.random_number
+        js = String(j).split(".")
+        token.token = js[1]
+        partido = token.token.slice(1..10)
         if eqp.tipo == 'computador'
             token.token = "DSK_" + partido
             eqp.descricao = "Registrado como Computador(desktop)"
@@ -23,8 +24,8 @@ class IdsController < ApplicationController
             eqp.descricao = "Registrado como Monitor"
         end
         #eqp.save!
-        #token.eqp = eqp.id
-        #token.save
+        token.eqp = eqp.id
+        token.save
         @messages = "Token único do equipamento a ser registrado: " + String(token.token) + "<br><h6>O link de acesso ao OTRS está localizado no menu ao lado.</h6>"
     end
     def ajuda
